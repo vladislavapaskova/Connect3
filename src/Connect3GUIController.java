@@ -133,15 +133,19 @@ public class Connect3GUIController extends JPanel implements KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e) 
 	{
+        ConnectFour newG;
+        Connect3GUIBoard newV; 
 		// TODO Auto-generated method stub
 		// different behavior depending on which key was released
         switch( e.getKeyCode() )
         {
+ 
 	        // if it's the right key
-	        case KeyEvent.VK_DOWN:
+	        case KeyEvent.VK_1:
 
-	        game= new ConnectFour(game.game, 0);
-	        view= new Connect3GUIBoard(game);
+	        newG= new ConnectFour(game.node, 0);
+	        game=newG; 	        
+	        view.game=newG; 
 	        view.repaint();
 		    //refresh
 		    refreshDisplay();
@@ -150,8 +154,9 @@ public class Connect3GUIController extends JPanel implements KeyListener{
 	        // if it's the left key
 	        case KeyEvent.VK_2:
 
-		    game= new ConnectFour(game.game, 1);
-		    view= new Connect3GUIBoard(game);
+		    newG= new ConnectFour(game.node, 1);
+		    game=newG; 	        
+		    view.game=newG; 
 		    view.repaint();
 		    //refresh
 		    refreshDisplay();; 
@@ -159,27 +164,30 @@ public class Connect3GUIController extends JPanel implements KeyListener{
 	        	
 	        case KeyEvent.VK_3:
 
-		    game= new ConnectFour(game.game, 2);
-		    view= new Connect3GUIBoard(game);
-		    view.repaint();
+			newG= new ConnectFour(game.node, 1);
+			game=newG; 	        
+			view.game=newG; 
+			view.repaint();
 		    //refresh
 		    refreshDisplay();
 	        break;
 	        
 	        case KeyEvent.VK_4:
 
-		    game= new ConnectFour(game.game, 3);
-		    view= new Connect3GUIBoard(game);
-		    view.repaint();
+			newG= new ConnectFour(game.node, 1);
+			game=newG; 	        
+			view.game=newG; 
+			view.repaint();
 		    //refresh
 		    refreshDisplay();
 		    break;
 		    
 	        case KeyEvent.VK_5:
 
-		    game= new ConnectFour(game.game, 0);
-		    view= new Connect3GUIBoard(game);
-		    view.repaint();
+			newG= new ConnectFour(game.node, 1);
+			game=newG; 	        
+			view.game=newG; 
+			view.repaint();
 		    //refresh
 		    refreshDisplay();
 		    break;		    
@@ -192,9 +200,8 @@ public class Connect3GUIController extends JPanel implements KeyListener{
 	private void refreshDisplay() 
 	{
 		//this is going to be the AI's response
-		
-		game = new ConnectFour(game.game, "AI");
-	    view= new Connect3GUIBoard(game);
+		ConnectFour newG = new ConnectFour(game.node, "AI");
+	    view.game=newG;
 		//call repaint
 	    view.repaint();
 	}

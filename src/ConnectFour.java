@@ -4,15 +4,36 @@ import java.util.List;
 
 public class ConnectFour {
 
-	public Node game;
+	public Node node;
 	public State state;
 	int col; 
 	
 public ConnectFour(Node previous, int colToPut)
 {
-	this.state = new State(previous.state.move(colToPut)); 
-	this.game = new Node(state);
+	/*
+	int[][] board= new int[4][5];
+	board[3][0]=1;
+	board[3][1]=1;
+	board[3][2]=2;
+	board[2][1]=1;
+	board[1][1]=2;
+	int whoseturn=2;
+	State newS = new State(board, whoseturn);
+	Node fourth = new Node(newS);
+	this.game= new Node(newS); 
+	this.state = newS; 
+	*/
+	if(!previous.state.checkifFullCol(colToPut))
+	{
+		System.out.println("invalid move");
+	}
+	State newState = previous.state.move(colToPut);
+	//System.out.println(newState.toString());
+	Node newnode=new Node(previous, newState);	
+	this.node = newnode;
+	this.state = newnode.state; 
 	this.col=colToPut; 
+
 	
 }
 
@@ -23,13 +44,13 @@ public ConnectFour(Node previous, String AI)
 	{
 		newGame=previous.expand().get(0);
 	}
-	this.game = newGame; 
+	this.node = newGame; 
 	this.state = newGame.state; 
 }
 
 public ConnectFour(Node game)
 {
-	this.game=game;
+	this.node=game;
 	this.state=game.state;
 	
 }

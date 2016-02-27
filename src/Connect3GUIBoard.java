@@ -11,20 +11,22 @@ import javax.swing.JPanel;
 public class Connect3GUIBoard extends JComponent{
 
 public ConnectFour game; 
+private int[][] gameBoard;
 		
 public Connect3GUIBoard(ConnectFour passedGame)
 {
 	 this.game=passedGame; 
+	 System.out.println("inside the Board gui");
 }
 		
 public void paint(Graphics g){
 	System.out.println("paint method");
+	System.out.println(this.game.state.toString());
 	paintComponent(g);}
 		
-//create a function that is going to paint the tetris pieces
 public void paintComponent(Graphics g)
 {
-int[][] gameBoard= game.state.board; 
+gameBoard=game.state.board;
 //call the boardHasBlock method to check which tiles of the board hold pieces
 //create a for loop to go through the board
 	for(int i=0; i<4; i++)
@@ -34,6 +36,7 @@ int[][] gameBoard= game.state.board;
 			//check if it has a block 
 			if(gameBoard[i][j]==1)
 			{
+				System.out.println("Found a one");
 				//set the color of the inside of the piece
 				g.setColor(Color.YELLOW); 
 				//fill the tile
@@ -56,12 +59,14 @@ int[][] gameBoard= game.state.board;
 			}
 			else
 			{
+				/*
 				//set the color of the inside of the empty tile
 				g.setColor(Color.BLUE); 
 				//fill the tile
 				g.fillRect(0,  0, getWidth(), getHeight()); 
 				//draw it
 				g.drawRect(0,  0, getWidth(),getHeight()); 
+				*/
 			}
 		}
 
