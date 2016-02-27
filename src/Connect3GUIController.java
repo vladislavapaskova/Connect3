@@ -44,6 +44,7 @@ public class Connect3GUIController extends JPanel implements KeyListener{
 		game= new ConnectFour(node); 
 		// create its view
 		view= new Connect3GUIBoard(game);
+		refreshDisplay(); 
 		//call the function that makes the main panel
 		makeMainPanel();
 		
@@ -201,6 +202,7 @@ public class Connect3GUIController extends JPanel implements KeyListener{
 	{
 		//this is going to be the AI's response
 		ConnectFour newG = new ConnectFour(game.node, "AI");
+		game=newG; 
 	    view.game=newG;
 		//call repaint
 	    view.repaint();

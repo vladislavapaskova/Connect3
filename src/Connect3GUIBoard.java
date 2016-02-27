@@ -16,7 +16,6 @@ private int[][] gameBoard;
 public Connect3GUIBoard(ConnectFour passedGame)
 {
 	 this.game=passedGame; 
-	 System.out.println("inside the Board gui");
 }
 		
 public void paint(Graphics g){
@@ -40,22 +39,22 @@ gameBoard=game.state.board;
 				//set the color of the inside of the piece
 				g.setColor(Color.YELLOW); 
 				//fill the tile
-				g.fillRect(i*getWidth()/10, j*getHeight()/18, getWidth()/10, getHeight()/18); 
+				g.fillRect(j*getWidth()/5, i*getHeight()/4, getWidth()/5, getHeight()/4); 
 				//set the color of the border of the box
 				g.setColor(Color.BLACK); 
 				//draw it
-				g.drawRect(i*getWidth()/10, j*getHeight()/18, getWidth()/10, getHeight()/18); 
+				g.drawRect(j*getWidth()/5, i*getHeight()/4, getWidth()/5, getHeight()/4); 
 			}
 			else if (gameBoard[i][j]==2)
 			{
 				//set the color of the inside of the piece
 				g.setColor(Color.RED); 
 				//fill the tile
-				g.fillRect(i*getWidth()/10, j*getHeight()/18, getWidth()/10, getHeight()/18); 
+				g.fillRect(j*getWidth()/5, i*getHeight()/4, getWidth()/5, getHeight()/4); 
 				//set the color of the border of the box
 				g.setColor(Color.BLACK); 
 				//draw it
-				g.drawRect(i*getWidth()/10, j*getHeight()/18, getWidth()/10, getHeight()/18); 
+				g.drawRect(j*getWidth()/5, i*getHeight()/4, getWidth()/5, getHeight()/4); 
 			}
 			else
 			{
